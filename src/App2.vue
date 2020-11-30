@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <van-button type="primary" @click="sayHello">主要按钮</van-button>
+    <van-badge :content="count">
+      <div class="child" />
+    </van-badge>
     <van-switch v-model="checked" />
   </div>
 </template>
@@ -8,15 +10,17 @@
 <script>
 
 export default {
-  name: 'App',
+  name: 'App2',
   data() {
     return {
       checked: true,
+      count: 5,
     }
   },
   watch: {
     checked(val) {
-      console.log('index switch clicked', val)
+      console.log('subpage switch clicked', val)
+      this.count++
     }
   },
   methods: {
@@ -35,5 +39,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.child {
+  width: 36px;
+  height: 36px;
+  background: #f2f3f5;
+  border-radius: 4px;
 }
 </style>
